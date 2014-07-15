@@ -1,6 +1,6 @@
 <?php
 /**
- * FooGallery My New Template Extension
+ * FooGallery Owl Carousel Template
  *
  * A cool description about what your cool thing can do
  *
@@ -11,7 +11,7 @@
  * @copyright 2014  Matt Cromwell
  *
  * @wordpress-plugin
- * Plugin Name: FooGallery - Owl Carousel
+ * Plugin Name: FooGallery Owl Carousel Template
  * Description: An Owl Carousel template with multiple options for presentation and functionality. Full details on Owl Carousel <a href="http://www.owlcarousel.owlgraphic.com/">here</a>
  * Version:     1.0.0
  * Author:       Matt Cromwell
