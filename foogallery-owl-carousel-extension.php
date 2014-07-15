@@ -118,6 +118,17 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 						)
 					),
 					array(
+						'id'      => 'dots',
+						'title'   => __('Pagination', 'foogallery-owl-carousel'),
+						'desc'    => __('Show pagination dots? These will appear below the prev/next buttons if you show them. They represent how many "pages" you have based on how many total images and how many you are showing at a time. For example, if you have 6 images and are showing 3 at a time, then there will be 2 pagination dots available.', 'foogallery-owl-carousel'),
+						'default' => 'true',
+						'type'    => 'radio',
+						'choices' => array(
+							'true' => __( 'True', 'foogallery-owl-carousel' ),
+							'false' => __( 'False', 'foogallery-owl-carousel' ),
+						)
+					),
+					array(
 						'id'      => 'loop',
 						'title'   => __('Loop', 'foogallery-owl-carousel'),
 						'desc'    => __('Loop back to the beginning? Affects both autoplay and navigation.', 'foogallery-owl-carousel'),
@@ -206,7 +217,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id' => 'thumb_preview',
 						'title' => __('Thumbnail Preview', 'foogallery-owl-carousel'),
-						'desc' => __('This is what your gallery thumbnails will look like.', 'foogallery-owl-carousel'),
+						'desc' => __('This is what your carousel thumbnail style will look like (actual thumbnail dimensions are not reflected here).', 'foogallery-owl-carousel'),
 						'type' => 'thumb_preview'
 					),
 				)

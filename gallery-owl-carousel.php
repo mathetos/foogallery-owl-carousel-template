@@ -15,6 +15,7 @@ $args['link'] = foogallery_gallery_template_setting( 'thumbnail_link', 'image' )
 $lightbox = foogallery_gallery_template_setting( 'lightbox', 'unknown' );
 $items = foogallery_gallery_template_setting( 'items', '3' );
 $nav = foogallery_gallery_template_setting( 'nav', 'true' );
+$dots = foogallery_gallery_template_setting( 'dots', 'true' );
 $autoplay = foogallery_gallery_template_setting( 'autoplay', 'true' );
 $pause = foogallery_gallery_template_setting( 'pause', 'true' );
 $seconds = foogallery_gallery_template_setting( 'seconds', '4000' );
@@ -31,7 +32,7 @@ jQuery(function($){
 		nav:<?php echo $nav; ?>,
 		margin: <?php echo $margin; ?>,
 		loop:<?php echo $loop; ?>,
-		dots:false,
+		dots:<?php echo $dots; ?>,
 		autoplay:<?php echo $autoplay; ?>,
 		autoplayTimeout:<?php echo $seconds; ?>,
 		autoplaySpeed:1000,
