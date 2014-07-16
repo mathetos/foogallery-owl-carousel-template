@@ -42,23 +42,7 @@ jQuery(function($){
 });
 </script>
 <div id="foogall-<?php echo $gallid; ?>" class="<?php echo foogallery_build_class_attribute( $current_foogallery, 'foogallery-lightbox-' . $lightbox, 'owl-carousel ' . $hover_effect, $border_style); ?>">
-	<?php 
-		
-		 //Filter for changing the image anchor
-        function owl_anchor_filter($attr) {
-            $owltarget = get_post_meta( $attachment->ID, '_owl_target', true );
-			$owlhref = get_post_meta( $attachment->ID, '_owl_href', true );
-			
-			$owl_image_link = array(
-                'href' => $owltarget,
-                'target' => $owlhref,
-            );
-            $attr = $owl_image_link;
-            
-            return $attr;
-        }
-        add_filter('foogallery_attachment_html_link_attributes', 'owl_anchor_filter'); 
-		
+	<?php
 		foreach ( $current_foogallery->attachments() as $attachment ) {
 			echo $attachment->html( $args );
 		}

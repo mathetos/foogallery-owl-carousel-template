@@ -20,14 +20,14 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-/*Main Owl Carousel Extension Code Base */ 
+/*Main Owl Carousel Extension Code Base */
 if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 
 	define('OwlC_URL', plugin_dir_url( __FILE__ ));
 	define('OwlC_VERSION', '1.0.0');
 
 	require_once( 'foogallery-owl-carousel-init.php' );
-	
+
 	// Include custom media fields file
 	require_once('includes/custom_media_fields.php' );
 
@@ -38,6 +38,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 		function __construct() {
 			add_filter( 'foogallery_gallery_templates', array( $this, 'add_template' ) );
 			add_filter( 'foogallery_gallery_templates_files', array( $this, 'register_myself' ) );
+			add_filter( 'foogallery_attachment_html_link_attributes', array( $this, 'change_anchor' ), 10, 3 );
 		}
 
 		/**
@@ -229,5 +230,28 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 
 			return $gallery_templates;
 		} // End add_template
+
+		/**
+		 * Filter for changing the image anchor in the gallery template
+		 */
+		function change_anchor( $attr, $args, $attachment ) {
+			global $current_foogallery;
+
+			//only do this for owl carousel galleries
+			if ( $current_foogallery && 'owl-carousel' == $current_foogallery->gallery_template ) {
+				$owl_target = get_post_meta( $attachment->ID, '_owl_target', true );
+				$owl_href = get_post_meta( $attachment->ID, '_owl_href', true );
+
+				if ( $owl_href ) {
+					$attr['href'] = $owl_href;
+				}
+
+				if ( $owl_target ) {
+					$attr['target'] = $owl_target;
+				}
+			}
+
+			return $attr;
+		}
 	} // End Owl_carousel class
 } // End if !class_exists
