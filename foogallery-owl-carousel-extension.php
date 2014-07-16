@@ -20,12 +20,16 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
+/*Main Owl Carousel Extension Code Base */ 
 if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 
 	define('OwlC_URL', plugin_dir_url( __FILE__ ));
 	define('OwlC_VERSION', '1.0.0');
 
 	require_once( 'foogallery-owl-carousel-init.php' );
+	
+	// Include custom media fields file
+	require_once('includes/custom_media_fields.php' );
 
 	class Owl_Carousel_Template_FooGallery_Extension {
 		/**
@@ -151,7 +155,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 						)
 					),
 					array(
-						'id'      => 'pause ap',
+						'id'      => 'pause',
 						'title'   => __('Pause', 'foogallery-owl-carousel'),
 						'desc'    => __('Pause Autoplay on Hover?', 'foogallery-owl-carousel'),
 						'default' => 'true',
@@ -162,7 +166,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 						)
 					),
 					array(
-						'id'      => 'seconds ap',
+						'id'      => 'seconds',
 						'title'   => __('Seconds', 'foogallery-owl-carousel'),
 						'desc'    => __('How many seconds between slides while on Autoplay?', 'foogallery-owl-carousel'),
 						'default' => '4 seconds',
@@ -224,6 +228,6 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 			);
 
 			return $gallery_templates;
-		}
-	}
-}
+		} // End add_template
+	} // End Owl_carousel class
+} // End if !class_exists
