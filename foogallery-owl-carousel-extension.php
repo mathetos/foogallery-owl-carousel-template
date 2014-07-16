@@ -234,13 +234,18 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 		/**
 		 * Filter for changing the image anchor in the gallery template
 		 */
+		 
+		 
 		function change_anchor( $attr, $args, $attachment ) {
 			global $current_foogallery;
 
 			//only do this for owl carousel galleries
 			if ( $current_foogallery && 'owl-carousel' == $current_foogallery->gallery_template ) {
+				
 				$owl_target = get_post_meta( $attachment->ID, '_owl_target', true );
 				$owl_href = get_post_meta( $attachment->ID, '_owl_href', true );
+				$img_caption = get_post_meta( $attachment->ID, $this->caption, true );
+				$img_desc = get_post_meta( $attachment->ID, $this->description, true );
 
 				if ( $owl_href ) {
 					$attr['href'] = $owl_href;
@@ -248,10 +253,27 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 
 				if ( $owl_target ) {
 					$attr['target'] = $owl_target;
+					$attr['class'] = $owl_target;
 				}
+				
+				if ( !empty( $this->caption ) ) {
+					$attr['data-caption-title'] = $this->caption;
+				}
+
+				if ( !empty( $this->description ) ) {
+					$attr['data-caption-desc'] = $this->description;
+				}
+					
 			}
 
 			return $attr;
-		}
+		}	
 	} // End Owl_carousel class
+	
+	function load_owl_carousel_admin_style() {
+        wp_register_style( 'owl_admin_css', OwlC_URL . '/css/admin-gallery-owl-carousel.css', false, '1.0.0' );
+        wp_enqueue_style( 'owl_admin_css' );
+		}
+		add_action( 'admin_enqueue_scripts', 'load_owl_carousel_admin_style' );
+	
 } // End if !class_exists

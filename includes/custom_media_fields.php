@@ -110,10 +110,6 @@ require_once ( plugin_dir_path( __FILE__ ) . 'media_fields_options.php' );
         break;
 		
 		case 'title' :
-			$values['input'] = 'html';
-			$values['label'] = '<h4 style="width: 100%;">Owl Carousel Fields</h4>';
-			$html = '<div style="display:none;">&nbsp;</div>';
-			$values['html'] = $html;
 		break;
 }
  

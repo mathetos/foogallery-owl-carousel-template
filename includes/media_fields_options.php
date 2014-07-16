@@ -5,10 +5,9 @@ $textdomain = 'owlcarousel';
 
 $owl_attchments_options = array(
     'owl_heading' => array(
-        'label'       => 'Owl Carousel Fields',
-        'input'       => 'title',
+		'label'       => 'Owl Carousel Fields',
         'application' => 'image',
-		'html'		  => '<h4>Owl Carousel Fields</h4>',
+		'helps' => '<p><small><em>These fields are for linking the image to something other than the media file. You can link to a post, or an external url. If you are using FooBox Pro, you can even link to inline html within your page, like a Sign-up form or alert. For full details, <a href="http://docs.fooplugins.com/foogallery/owl-carousel" target="_blank">read our documentation about the Owl Carousel template</a>. </em></small></p>',
         'exclusions'   => array( 'audio', 'video' ),
     ),
 	'owl_href' => array(

@@ -1,0 +1,30 @@
+/*Admin styles*/
+.compat-field-owl_heading input[name*=owl_heading] {
+display: none;
+}
+
+.compat-field-owl_heading {background: #ddd; text-align: center; padding:1em; margin: 0 0 1em 0;}
+
+.compat-item .label {text-align: left; width: 30%; margin-right: 0;}
+.compat-item .label span {width: 100%; float: left; display: inline-block; font-weight: 700}
+.compat-item .field {display: inline-block !important;}
+
+
+.compat-field-owl_heading .label {width: 100%;}
+.compat-field-owl_heading .label  span {text-align: center; font-size: 1em;}
+.compat-field-owl_heading .field {width: 95%; text-align: left;}
+
+.compat-attachment-fields p.help {
+	margin: 6px 0; 
+	line-height: 1.2; 
+	color: #aaa;
+	font-size: .95em;
+	}
+
+.compat-item tr {padding: 2px 0 1em 0;}
+
+#screen-meta .compat-field-owl_heading .label {
+width: 25%;
+}
+#screen-meta .compat-attachment-fields td,
+#screen-meta .compat-attachment-fields th {padding: .5em;}
