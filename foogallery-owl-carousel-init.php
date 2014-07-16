@@ -14,6 +14,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension_Init' ) ) {
 				'slug'=> 'owl-carousel',
 				'class'=> 'Owl_Carousel_Template_FooGallery_Extension',
 				'title'=> 'Owl Carousel Template',
+				'file'=> 'foogallery-owl-carousel-extension.php',
 				'description'=> 'An Owl Carousel template with multiple options for presentation and functionality. Full details on Owl Carousel <a href="http://www.owlcarousel.owlgraphic.com/">here</a>.',
 				'author'=> ' Matt Cromwell',
 				'author_url'=> 'http://mattcromwell.com',
