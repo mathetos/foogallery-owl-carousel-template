@@ -1,13 +1,10 @@
-foogallery-owl-carousel-template
+Owl Carousel for FooGallery
 ================================
+A custom template for FooGallery which implements Owl Carousel 2.
 
-Current Version = 1.0.2
+###Current Version = 1.0.2
 
 This repository will most often be one step ahead of the WordPress Repo. Development happens here, so if you'd like to see what's coming down the pipe, feel free to download and experiment with this. Issues and Pull requests welcome!
-
-##Owl Carousel for FooGallery
-
-A custom template for FooGallery which implements Owl Carousel 2.
 
 ##Useful Resources
 * [Download FooGallery](https://wordpress.org/plugins/foogallery/)
