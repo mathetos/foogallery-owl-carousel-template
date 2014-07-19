@@ -24,6 +24,21 @@
 		$('.foogallery-thumbnail-preview').click(function(e) {
 			e.preventDefault();
 		});
+
+		// Hide/Show Autoplay options depending on
+		$(function() {
+		    $('tr.gallery_template_field-owl-carousel-pause').hide();
+		    $('tr.gallery_template_field-owl-carousel-seconds').hide();
+
+		    $('input[name="foogallery_settings[owl-carousel_autoplay]"]').click(function(){
+            if($(this).attr("value")=="true"){
+                $("tr.gallery_template_field-owl-carousel-pause").show();
+                $("tr.gallery_template_field-owl-carousel-seconds").show();
+            }
+        });
+
+		});
+		
 		};
 
 }(window.FOOGALLERY_OWL_TEMPLATE = window.FOOGALLERY_OWL_TEMPLATE || {}, jQuery));

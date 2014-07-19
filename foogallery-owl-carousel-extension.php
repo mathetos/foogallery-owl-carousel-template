@@ -13,7 +13,7 @@
  * @wordpress-plugin
  * Plugin Name: FooGallery Owl Carousel Template
  * Description: An Owl Carousel template with multiple options for presentation and functionality. Full details on Owl Carousel <a href="http://www.owlcarousel.owlgraphic.com/" target="_blank">here</a>
- * Version:     1.0.0
+ * Version:     1.0.2
  * Author:       Matt Cromwell
  * Author URI:  http://mattcromwell.com
  * License:     GPL-2.0+
@@ -24,7 +24,7 @@
 if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 
 	define('OwlC_URL', plugin_dir_url( __FILE__ ));
-	define('OwlC_VERSION', '1.0.0');
+	define('OwlC_VERSION', '1.0.2');
 
 	require_once( 'foogallery-owl-carousel-init.php' );
 
@@ -67,10 +67,18 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 				'admin_js'	  => OwlC_URL . 'js/admin-gallery-owl-carousel.js',
 				'fields'	  => array(
 					array(
+						'id'	  => 'help',
+						'title'	  => __('Tip', 'foogallery'),
+						'type'	  => 'html',
+						'help'	  => true,
+						'desc'	  => __('For full documentation of how to use Owl Carousel for FooGallery, <a href="http://docs.fooplugins.com/foogallery/owl-carousel/" target="_blank">visit our documentation page</a>.', 'foogallery')
+					),
+					array(
 						'id'      => 'thumbnail_size',
 						'title'   => __('Image Size', 'foogallery-owl-carousel'),
 						'desc'    => __('Choose the size of the individual images.', 'foogallery-owl-carousel'),
 						'type'    => 'thumb_size',
+						'section' => __('General Settings', 'foogallery'),
 						'default' => array(
 							'width' => get_option( 'thumbnail_size_w' ),
 							'height' => get_option( 'thumbnail_size_h' ),
@@ -82,11 +90,13 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 						'title'   => __('Image Link', 'foogallery-owl-carousel'),
 						'default' => 'image' ,
 						'type'    => 'thumb_link',
+						'section' => __('General Settings', 'foogallery'),
 						'spacer'  => '<span class="spacer"></span>',
 						'desc'	  => __('You can choose to either link each thumbnail to the full size image or to the image\'s attachment page.', 'foogallery-owl-carousel')
 					),
 					array(
 						'id'      => 'lightbox',
+						'section' => __('General Settings', 'foogallery'),
 						'title'   => __('Lightbox', 'foogallery-owl-carousel'),
 						'desc'    => __('Choose which lightbox you want to use in the gallery.', 'foogallery-owl-carousel'),
 						'type'    => 'lightbox'
@@ -94,6 +104,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'items',
 						'title'   => __('Items', 'foogallery-owl-carousel'),
+						'section' => __('Stage and Navigation Settings', 'foogallery'),
 						'desc'    => __('How many images do you want to show at a time?', 'foogallery-owl-carousel'),
 						'default' => '3',
 						'type'    => 'number',
@@ -104,6 +115,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'margin',
 						'title'   => __('Margin', 'foogallery-owl-carousel'),
+						'section' => __('Stage and Navigation Settings', 'foogallery'),
 						'desc'    => __('The margin between items in the carousel', 'foogallery-owl-carousel'),
 						'default' => '10',
 						'type'    => 'number',
@@ -114,6 +126,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'nav',
 						'title'   => __('Navigation', 'foogallery-owl-carousel'),
+						'section' => __('Stage and Navigation Settings', 'foogallery'),
 						'desc'    => __('Show Prev/Next Navigation?', 'foogallery-owl-carousel'),
 						'default' => 'true',
 						'type'    => 'radio',
@@ -125,6 +138,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'dots',
 						'title'   => __('Pagination', 'foogallery-owl-carousel'),
+						'section' => __('Stage and Navigation Settings', 'foogallery'),
 						'desc'    => __('Show pagination dots? These will appear below the prev/next buttons if you show them. They represent how many "pages" you have based on how many total images and how many you are showing at a time. For example, if you have 6 images and are showing 3 at a time, then there will be 2 pagination dots available.', 'foogallery-owl-carousel'),
 						'default' => 'true',
 						'type'    => 'radio',
@@ -136,6 +150,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'loop',
 						'title'   => __('Loop', 'foogallery-owl-carousel'),
+						'section' => __('Stage and Navigation Settings', 'foogallery'),
 						'desc'    => __('Loop back to the beginning? Affects both autoplay and navigation.', 'foogallery-owl-carousel'),
 						'default' => 'true',
 						'type'    => 'radio',
@@ -147,8 +162,9 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'autoplay',
 						'title'   => __('Autoplay', 'foogallery-owl-carousel'),
+						'section' => __('Autoplay Settings', 'foogallery'),
 						'desc'    => __('Enable Autoplay?', 'foogallery-owl-carousel'),
-						'default' => 'true',
+						'default' => 'false',
 						'type'    => 'radio',
 						'choices' => array(
 							'true' => __( 'Yes', 'foogallery-owl-carousel' ),
@@ -158,6 +174,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'pause',
 						'title'   => __('Pause', 'foogallery-owl-carousel'),
+						'section' => __('Autoplay Settings', 'foogallery'),
 						'desc'    => __('Pause Autoplay on Hover?', 'foogallery-owl-carousel'),
 						'default' => 'true',
 						'type'    => 'radio',
@@ -169,6 +186,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'seconds',
 						'title'   => __('Seconds', 'foogallery-owl-carousel'),
+						'section' => __('Autoplay Settings', 'foogallery'),
 						'desc'    => __('How many seconds between slides while on Autoplay?', 'foogallery-owl-carousel'),
 						'default' => '4 seconds',
 						'type'    => 'select',
@@ -185,11 +203,10 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 							'10000' => __( '10 seconds', 'foogallery-owl-carousel' )
 						)
 					),
-					//available field types available : html, checkbox, select, radio, textarea, text, checkboxlist, icon
-					//an example of a icon field used in the default gallery template
 					array(
 						'id'      => 'border-style',
 						'title'   => __('Border Style', 'foogallery-owl-carousel'),
+						'section' => __('Style Settings', 'foogallery'),
 						'desc'    => __('The border style for each thumbnail in the gallery.', 'foogallery-owl-carousel'),
 						'type'    => 'icon',
 						'default' => 'border-style-square-white',
@@ -206,6 +223,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id'      => 'hover-effect',
 						'title'   => __('Hover Effect', 'foogallery-owl-carousel'),
+						'section' => __('Style Settings', 'foogallery'),
 						'desc'    => __('A hover effect is shown when you hover over each thumbnail.', 'foogallery-owl-carousel'),
 						'type'    => 'icon',
 						'default' => 'hover-effect-zoom',
@@ -222,6 +240,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 					array(
 						'id' => 'thumb_preview',
 						'title' => __('Thumbnail Preview', 'foogallery-owl-carousel'),
+						'section' => __('Style Settings', 'foogallery'),
 						'desc' => __('This is what your carousel thumbnail style will look like (actual thumbnail dimensions are not reflected here).', 'foogallery-owl-carousel'),
 						'type' => 'thumb_preview'
 					),
@@ -275,5 +294,21 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
         wp_enqueue_style( 'owl_admin_css' );
 		}
 		add_action( 'admin_enqueue_scripts', 'load_owl_carousel_admin_style' );
+
+	function foogalleryversioncheck_admin_notice() {
+		if (FOOGALLERY_VERSION == '1.1.7') {
+		} else {
+			if (current_user_can( 'activate_plugins' )) {
+				?>
+				<div class="error">
+					<h3>FooGallery 1.1.7 is not Active</h3>
+					<p>This version of Owl Carousel requires at least version 1.1.7 of FooGallery to function correctly.</p>
+				</div>
+				<?php
+			}
+			}
+		}
+		
+		add_action( 'admin_notices', 'foogalleryversioncheck_admin_notice' );
 	
 } // End if !class_exists

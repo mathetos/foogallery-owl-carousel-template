@@ -133,12 +133,6 @@ require_once ( plugin_dir_path( __FILE__ ) . 'media_fields_options.php' );
         foreach ( $this->media_fields as $field => $values ) {
             // If this field has been submitted (is present in the $attachment variable)
             if ( isset( $attachment[$field] ) ) {
-                // If submitted field is empty
-                // We add errors to the post object with the "error_text" parameter we set in the options
-                if ( strlen( trim( $attachment[$field] ) ) == 0 )
-                    $post['errors'][$field]['errors'][] = __( $values['error_text'] );
-                // Otherwise we update the custom field
-                else
                     update_post_meta( $post['ID'], '_' . $field, $attachment[$field] );
             }
             // Otherwise, we delete it if it already existed

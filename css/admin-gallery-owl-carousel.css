@@ -3,6 +3,30 @@
 display: none;
 }
 
+.gallery_template_field-owl-carousel-help td {padding-bottom: 0 !important;}
+.gallery_template_field-owl-carousel-help td .foogallery-help {margin-bottom: 0 !important;}
+
+.gallery_template_field-owl-carousel h4 {
+background: #C3DCE7;
+padding: .5em;
+color: #1e8cbe;
+margin: 1em 0 0 0;
+}
+.gallery_template_field-owl-carousel h4:before {
+font-family: 'Dashicons';
+display: inline-block;
+float: left;
+margin: 0 .25em 0 0;
+font-size: 1.5em;
+color: #1e8cbe;
+font-weight: 300;
+}
+.gallery_template_field-owl-carousel-thumbnail_size h4:before {content: "\f111";}
+.gallery_template_field-owl-carousel-items h4:before {content: "\f229"; font-size: 2em}
+.gallery_template_field-owl-carousel-autoplay h4:before {content: "\f236";}
+.gallery_template_field-owl-carousel-border-style h4:before {content: "\f309";}
+
+
 .compat-field-owl_heading {background: #ddd; text-align: center; padding:1em; margin: 0 0 1em 0;}
 
 .compat-item .label {text-align: left; width: 30%; margin-right: 0;}

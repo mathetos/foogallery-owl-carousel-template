@@ -4,7 +4,7 @@ Donate link: http://mattcromwell.com
 Tags: foogallery, owl carousel, responsive
 Requires at least: 3.8
 Tested up to: 3.91
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,12 @@ None yet.
 Coming soon.
 
 == Changelog ==
+= 1.0.2 =
+* UPDATE: Updated settings to use latest FooGallery Settings API changes
+* ENHANCEMENT: Conditionally show Autoplay when choosing "true"
+
+= 1.0.1 =
+* BUGFIX: Custom Link field in Attachment Details could not be deleted after inserted.
 
 = 1.0 =
 * Just released.
