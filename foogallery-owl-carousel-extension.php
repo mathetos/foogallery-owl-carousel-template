@@ -37,6 +37,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 		function __construct() {			
 			add_filter( 'foogallery_gallery_templates', array( $this, 'add_template' ) );
 			add_filter( 'foogallery_gallery_templates_files', array( $this, 'register_myself' ) );
+			//add_filter( 'foogallery_located_template-owl-carousel', array( $this, 'enqueue_dependencies' ) );
 		}
 
 		/**
@@ -51,11 +52,12 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 		}
 		
 		function enqueue_dependencies() {
-			$js = OwlC_URL . 'js/gallery-owl-carousel.js';
-			wp_enqueue_script( 'owl-js', $js, array('jquery'), OwlC_VERSION );
-			
-			$css = OwlC_URL . 'css/gallery-owl-carousel.css';
-			wp_enqueue_style( 'owl-css', $css, array(), OwlC_VERSION );
+			$a11y = OwlC_URL . 'js/owlcarousel2-a11ylayer.js';
+			wp_enqueue_script( 'owl-a11y-js', $a11y, array('jquery'), OwlC_VERSION, true );
+
+			$tabbable = OwlC_URL . 'js/jquery.tabbable.js';
+			wp_enqueue_script( 'owl-a11y-js', $tabbable, array('jquery'), OwlC_VERSION, true );
+
 		}
 	
 		/**
@@ -154,31 +156,31 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 						'choices' => array(
 							'border-style-square-white' => array(
 								'label' => 'Square white border with shadow',
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/border-style-icon-square-white.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/border-style-icon-square-white.png'
 							),
 							'border-style-circle-white' => array(
 								'label' => 'Circular white border with shadow',
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/border-style-icon-circle-white.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/border-style-icon-circle-white.png'
 							),
 							'border-style-square-black' => array(
 								'label' => 'Square Black',
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/border-style-icon-square-black.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/border-style-icon-square-black.png'
 							),
 							'border-style-circle-black' => array(
 								'label' => 'Circular Black',
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/border-style-icon-circle-black.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/border-style-icon-circle-black.png'
 							),
 							'border-style-inset' => array(
 								'label' => 'Square Inset',
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/border-style-icon-square-inset.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/border-style-icon-square-inset.png'
 							),
 							'border-style-rounded' => array(
 								'label' => 'Plain Rounded',
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/border-style-icon-plain-rounded.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/border-style-icon-plain-rounded.png'
 							),
 							'' => array(
 								'label' => 'Plain',
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/border-style-icon-none.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/border-style-icon-none.png'
 							),
 						)
 					),
@@ -193,30 +195,30 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 						'choices' => array(
 							'hover-effect-zoom' => array(
 								'label' => __('Zoom' ,'foogallery-owl-carousel' ),
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/hover-effect-icon-zoom.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/hover-effect-icon-zoom.png'
 							),
 							'hover-effect-zoom2' => array(
 								'label' => __( 'Zoom 2' ,'foogallery-owl-carousel' ),
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/hover-effect-icon-zoom2.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/hover-effect-icon-zoom2.png'
 							),
 							'hover-effect-zoom3' => array(
 								'label' => __( 'Zoom 3' ,'foogallery-owl-carousel' ),
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/hover-effect-icon-zoom3.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/hover-effect-icon-zoom3.png'
 							),
 							'hover-effect-plus' => array(
 								'label' => __( 'Plus' ,'foogallery-owl-carousel' ),
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/hover-effect-icon-plus.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/hover-effect-icon-plus.png'
 							),
 							'hover-effect-circle-plus' => array(
-								'label' => __( 'Cirlce Plus' ,'foogallery-owl-carousel' ), 'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/hover-effect-icon-circle-plus.png'
+								'label' => __( 'Cirlce Plus' ,'foogallery-owl-carousel' ), 'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/hover-effect-icon-circle-plus.png'
 							),
 							'hover-effect-eye' => array(
 								'label' => __('Eye' ,'foogallery-owl-carousel'),
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/hover-effect-icon-eye.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/hover-effect-icon-eye.png'
 							),
 							'' => array(
 								'label' => __( 'None' ,'foogallery-owl-carousel' ),
-								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'assets/hover-effect-icon-none.png'
+								'img' => FOOGALLERY_DEFAULT_TEMPLATES_EXTENSION_URL . 'shared/img/admin/hover-effect-icon-none.png'
 							),
 						)
 					),
