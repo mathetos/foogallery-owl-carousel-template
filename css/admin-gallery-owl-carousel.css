@@ -63,4 +63,8 @@ left: 10px;
 }
 
 /* Hover Effects */ 
+.foogallery_metabox_field-thumb_preview div[class*="hover"] a {line-height: 0;}
+
 .foogallery-owl-carousel.hover-effect-zoom a { background:#000 url('img/zoom.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-zoom2 a { background:#000 url('img/zoom2.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-zoom3 a { background:#000 url('img/zoom3.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-plus a { background:#000 url('img/plus.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-circle-plus a { background:#000 url('img/circle-plus.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-eye a { background:#000 url('img/eye.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-zoom a:hover img, .foogallery-owl-carousel.hover-effect-zoom2 a:hover img, .foogallery-owl-carousel.hover-effect-zoom3 a:hover img, .foogallery-owl-carousel.hover-effect-plus a:hover img, .foogallery-owl-carousel.hover-effect-circle-plus a:hover img, .foogallery-owl-carousel.hover-effect-eye a:hover img { opacity: 0.5; } 
+
+tr.gallery_template_field-owl-carousel-animation {display:none;}

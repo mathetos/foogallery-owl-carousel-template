@@ -11,7 +11,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension_Init' ) ) {
 
 		function add_to_extensions_list( $extensions ) {
 			$extensions[] = array(
-				'slug'=> 'owl-carousel',
+				'slug'=> 'foogallery-owl-carousel-template',
 				'class'=> 'Owl_Carousel_Template_FooGallery_Extension',
 				'title'=> 'Owl Carousel Template',
 				'file'=> 'foogallery-owl-carousel-extension.php',
