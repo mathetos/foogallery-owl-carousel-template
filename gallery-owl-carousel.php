@@ -72,7 +72,7 @@ $gallid = $current_foogallery->ID; // current FooGallery ID
 			$dohash = ( $hash =='true' ? 'data-hash="' . $datahash . '"' : '');
 
 			?>
-			<div class="foo-item" <?php echo $dohash ; ?>> 
+			<div class="foo-item" <?php echo $dohash ; ?> tabindex="-1">
 			<?php
 				$cap = $attachment->caption;
 				$desc = $attachment->description;

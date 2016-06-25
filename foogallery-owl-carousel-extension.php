@@ -52,12 +52,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 		}
 		
 		function enqueue_dependencies() {
-			$a11y = OwlC_URL . 'js/owlcarousel2-a11ylayer.js';
-			wp_enqueue_script( 'owl-a11y-js', $a11y, array('jquery'), OwlC_VERSION, true );
-
-			$tabbable = OwlC_URL . 'js/jquery.tabbable.js';
-			wp_enqueue_script( 'owl-a11y-js', $tabbable, array('jquery'), OwlC_VERSION, true );
-
+			//*If you need additional CSS/JS put them here*//
 		}
 	
 		/**
