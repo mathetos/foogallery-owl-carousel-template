@@ -5,11 +5,11 @@
 	
 	FOOGALLERY_OWL_TEMPLATE.setPreviewClasses = function() {
 
-		var $previewImage = $('.foogallery-thumbnail-preview'),
+		var $previewImage = $('.foogallery-default-preview'),
 			border_style = $('input[name="foogallery_settings[owl-carousel_border-style]"]:checked').val(),
 			hover_effect = $('input[name="foogallery_settings[owl-carousel_hover-effect]"]:checked').val();
 
-		$previewImage.attr('class' ,'foogallery-thumbnail-preview foogallery-container foogallery-owl-carousel ' + hover_effect + ' ' + border_style);
+		$previewImage.attr('class' ,'foogallery-default-preview foogallery-container foogallery-owl-carousel ' + hover_effect + ' ' + border_style);
 	};
 	
 	FOOGALLERY_OWL_TEMPLATE.adminReady = function () {

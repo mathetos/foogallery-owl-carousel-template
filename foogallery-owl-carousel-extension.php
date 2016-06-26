@@ -222,7 +222,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 						'title' => __( 'Thumbnail Preview', 'foogallery-owl-carousel' ),
 						'section' => __( 'Thumbnail Size and Styles', 'foogallery-owl-carousel' ),
 						'desc' => __( 'This is what your carousel thumbnail style will look like (actual thumbnail dimensions are not reflected here).', 'foogallery-owl-carousel' ),
-						'type' => 'thumb_preview'
+						'type' => 'default_thumb_preview'
 					),
 					array(
 						'id'	  => 'help',

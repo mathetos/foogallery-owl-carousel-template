@@ -41,19 +41,28 @@ margin-bottom: -48px !important;
 /* Border styles */ 
 .foogallery-owl-carousel.border-style-rounded a { border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }  .foogallery-owl-carousel.border-style-square-white a { border: 5px solid #FFF; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); }  .foogallery-owl-carousel.border-style-circle-white a, .foogallery-owl-carousel.foogallery-lightbox-none.border-style-circle-white img { border-radius: 50%; -webkit-border-radius: 50%; -moz-border-radius: 50%; border: 5px solid #FFF; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); max-width: 95%;}  .foogallery-owl-carousel.border-style-circle-black a, .foogallery-owl-carousel.border-style-circle-black.foogallery-lightbox-none img { border-radius: 50%; -webkit-border-radius: 50%; -moz-border-radius: 50%; border: 3px solid #000; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); } .foogallery-owl-carousel.border-style-square-black a { border: 3px solid #000; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); }  .foogallery-owl-carousel.border-style-inset a { position: relative; max-width: 100%; }  .foogallery-owl-carousel.border-style-inset a::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; box-shadow: inset 0 0 20px #000; -moz-box-shadow: inset 0 0 20px #000; -webkit-box-shadow: inset 0 0 20px #000; } .foogallery-owl-carousel.foogallery-lightbox-none.border-style-inset .owl-item:before { content: ''; position: absolute; top: 0; bottom: 6px; left: 0; right: 0; box-shadow: inset 0 0 30px rgba(0,0,0,.9); -moz-box-shadow: inset 0 0 30px rgba(0,0,0,.9); -webkit-box-shadow: inset 0 0 30px rgba(0,0,0,.9);}
 
+.foogallery-owl-carousel a,
+.foogallery-owl-carousel a img{
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-ms-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+}
+
 /*force no transition on hover so circle doesn't flash a square*/
 .foogallery-owl-carousel.border-style-circle-white a img,
 .foogallery-owl-carousel.border-style-circle-black a img,
 .foogallery-owl-carousel.border-style-circle-white a:hover img,
 .foogallery-owl-carousel.border-style-circle-white a:hover img {
-opacity: 1;
--webkit-transition: all 0 ease 0;
--moz-transition: all 0 ease 0;
--ms-transition: all 0 ease 0;
--o-transition: all 0 ease 0;
-transition: all 0 ease 0;
-max-height: 95%;
-width: 95%
+	opacity: 1;
+	max-height: 100%;
+	width: 100%;
+	-webkit-transition: all 0ms ease;
+	-moz-transition: all 0ms ease;
+	-ms-transition: all 0ms ease;
+	-o-transition: all 0ms ease;
+	transition: all 0ms ease;
 }
 
 .foogallery-owl-carousel.border-style-circle-white a,
@@ -63,7 +72,7 @@ left: 10px;
 }
 
 /* Hover Effects */ 
-.foogallery_metabox_field-thumb_preview div[class*="hover"] a {line-height: 0;}
+.foogallery_metabox_field-default_thumb_preview div[class*="hover"] a {line-height: 0;}
 
 .foogallery-owl-carousel.hover-effect-zoom a { background:#000 url('img/zoom.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-zoom2 a { background:#000 url('img/zoom2.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-zoom3 a { background:#000 url('img/zoom3.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-plus a { background:#000 url('img/plus.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-circle-plus a { background:#000 url('img/circle-plus.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-eye a { background:#000 url('img/eye.png') no-repeat center center; }  .foogallery-owl-carousel.hover-effect-zoom a:hover img, .foogallery-owl-carousel.hover-effect-zoom2 a:hover img, .foogallery-owl-carousel.hover-effect-zoom3 a:hover img, .foogallery-owl-carousel.hover-effect-plus a:hover img, .foogallery-owl-carousel.hover-effect-circle-plus a:hover img, .foogallery-owl-carousel.hover-effect-eye a:hover img { opacity: 0.5; } 
 
