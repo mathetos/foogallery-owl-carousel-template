@@ -58,9 +58,14 @@ $gallid = $current_foogallery->ID; // current FooGallery ID
 #foogallery-gallery-<?php echo $gallid; ?> .foo-item {
 	max-height: <?php echo $height ; ?>px;
 }
+	#foogallery-gallery-<?php echo $gallid; ?>.border-style-inset a::after {
+		box-shadow: inset 0 0 20px #000;
+		-moz-box-shadow: inset 0 0 20px #000;
+		-webkit-box-shadow: inset 0 0 calc(<?php echo $height ; ?>px/4) rgba(0,0,0,0.8);
+	}
 </style>
 
-<div id="foogallery-gallery-<?php echo $gallid; ?>" class="<?php echo foogallery_build_class_attribute( $current_foogallery, 'foogallery-lightbox-' . $lightbox, 'owl-carousel ' . $hover_effect, $border_style, $hasborder ); ?>" tabindex="0">
+<div id="foogallery-gallery-<?php echo $gallid; ?>" class="<?php echo foogallery_build_class_attribute( $current_foogallery, 'foogallery-lightbox-' . $lightbox, 'owl-carousel ' . $hover_effect, $border_style, $hasborder ); ?>">
 
 	<?php
 		foreach ( $current_foogallery->attachments() as $attachment ) {
@@ -72,7 +77,7 @@ $gallid = $current_foogallery->ID; // current FooGallery ID
 			$dohash = ( $hash =='true' ? 'data-hash="' . $datahash . '"' : '');
 
 			?>
-			<div class="foo-item" <?php echo $dohash ; ?> tabindex="-1">
+			<div class="foo-item" <?php echo $dohash ; ?>>
 			<?php
 				$cap = $attachment->caption;
 				$desc = $attachment->description;
