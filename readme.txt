@@ -3,8 +3,8 @@ Contributors: webdevmattcrom, fooplugins
 Donate link: https://www.mattcromwell.com/products/foogallery-owl-carousel/
 Tags: foogallery, owl carousel, responsive
 Requires at least: 3.8
-Tested up to: 4.5
-Stable tag: 1.2.3
+Tested up to: 4.5.3
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,9 +14,12 @@ An Owl Carousel template with multiple options for presentation and functionalit
 
 Owl Carousel for FooGallery let's you display your images in a wide variety of formats and combinations. It can be a very simple slider of any size with text overlays. It can show multiple images per "stage". And now (since version 1.0.3) it supports navigation by hashtag urls, meaning you can push the slides to a specific slide from anywhere on the page with a url like `<a href="#slide3">`.
 
-If you are enjoying FooGallery Owl Carousel, [consider giving a small donation of any amount](https://www.mattcromwell.com/products/foogallery-owl-carousel/). Your donations help support local San Diego nonprofits with their hosting and web maintenance costs.
-
 [See full documentation for Owl Carousel here](http://docs.fooplugins.com/foogallery/owl-carousel/)
+
+**ABOUT MATT CROMWELL**
+> I'm Head of Support and Community Outreach at [WordImpress](https://wordimpress.com). Our most popular plugin is [Give](https://wordpress.org/plugins/give), the leading donation plugin for WordPress. I build custom WordPress plugins and themes and blog frequently at [mattcromwell.com](https://www.mattcromwell.com) on WordPress, Religion and Politics, and Family life.
+>
+> If you are enjoying FooGallery Owl Carousel please consider [giving a donation](https://www.mattcromwell.com/products/foogallery-owl-carousel) or [leaving a kind review](https://wordpress.org/support/view/plugin-reviews/foogallery-owl-carousel-template). All donations provided through my website go to [help San Diego nonprofit organizations with their hosting and web maintenance](https://www.mattcromwell.com/help-me-help-others/).
 
 **FEATURES**
 
@@ -63,7 +66,7 @@ Assuming you already have [FooGallery](http://wordpress.org/plugins/foogallery) 
 Yes. This feature was added into version 1.2. Enable the "Advanced Options" section to set those options.
 
 2. **Where did the Custom Owl Carousel link fields go?**  
-FooGallery added this ability to it's core, so the Owl fields were superfluous and so were removed, but that functionality still exists, you just need to update your Gallery's to use the FooGallery fields now instead.
+FooGallery added this ability to it's core, so the Owl fields were superfluous and so were removed, but that functionality still exists, you just need to update your Gallerys to use the FooGallery fields now instead.
 
 3. **The Owl Carousel JS supports "X" feature, why doesn't this?**  
 Lots of reasons. I added settings which I felt made the plugin as robust as possible without creating a never-ending page of settings. I really want this template to work well out of the box as easily as possible for the most amount of users possible. That's why I've added all these conditional fields. Users who want more can get more.  
@@ -73,7 +76,7 @@ But, if you think a feature of the JS is really awesome, let me know in the supp
 Make sure you go to "FooGallery > Extensions" and make sure you see "Owl Carousel" activated there.
 
 5. **How do you do it, Matt!? How do you make such awesome stuff!?**  
-Awww shucks! I lean on tons of other stronger, smarter, more skilled people than me and work at it every day. If you really feel that way, feel free to send me a [tip over here](http://www.mattcromwell.com/product/foogallery-owl-carousel-template/)
+Awww shucks! I lean on tons of other stronger, smarter, more skilled people than me and work at it every day. If you really feel that way, feel free to send me a [tip over here](https://www.mattcromwell.com/products/foogallery-owl-carousel/)
 
 6. **Can I update the text for the "prev" and "next" buttons?**
 Yes, since version 1.2.3 you can now use a simple filter to change the text of those buttons. Here's some sample code that you can add into your theme's function.php file to customize that text.
@@ -117,6 +120,14 @@ function new_next_text() {
 5. Choose from a plethora of styles and hover effects. See a preview live while you create your gallery.
 
 == Changelog ==
+= 1.3 =
+* General Code clean-up and enhancements for performance
+* Updated Owl Carousel JS/CSS to latest [version 2.1.6](https://github.com/OwlCarousel2/OwlCarousel2)
+* Added Keyboard navigation
+* FIX: Inset shadow wasn't working well. The size is now also calculated according to the image height instead of static.
+* FIX: Thumbnail Preview working correctly again and enhanced
+* FIX: Border and Hover effect buttons working as expected again.
+
 = 1.2.3 =
 * ENHANCEMENT: Added a filter to allow the prev/next text buttons to be customized. See [FAQ #6](https://wordpress.org/plugins/foogallery-owl-carousel-template/faq/) for example code.
 
