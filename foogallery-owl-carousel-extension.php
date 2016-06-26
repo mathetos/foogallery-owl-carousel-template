@@ -28,6 +28,22 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 	define( 'OwlC_FG_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'OwlC_FG_EXTENSION_FILE', __FILE__ );
 
+	include( OwlC_FG_PATH . 'admin/notices.php');
+
+	register_activation_hook( __FILE__,  'foog_owl_set_review_trigger_date' );
+
+	function foog_owl_set_review_trigger_date() {
+
+		// Create timestamp for when plugin was activated
+		// For use with our delayed Admin Notice reminder
+
+		$triggerreview = mktime(0, 0, 0, date("m")  , date("d")+30, date("Y"));
+
+		if ( !get_option('foog_owl_activation_date')) {
+			add_option( 'foog_owl_activation_date', $triggerreview, '', 'yes' );
+		}
+	}
+
 
 	class Owl_Carousel_Template_FooGallery_Extension {	
 		/**
@@ -37,6 +53,7 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 			add_filter( 'foogallery_gallery_templates', array( $this, 'add_template' ) );
 			add_filter( 'foogallery_gallery_templates_files', array( $this, 'register_myself' ) );
 			//add_filter( 'foogallery_located_template-owl-carousel', array( $this, 'enqueue_dependencies' ) );
+
 		}
 
 		/**
@@ -446,8 +463,8 @@ if ( !class_exists( 'Owl_Carousel_Template_FooGallery_Extension' ) ) {
 
 			return $gallery_templates;
 		} // End add_template
-
 		
 	} // End Owl_carousel class
 	
+
 } // End if !class_exists
