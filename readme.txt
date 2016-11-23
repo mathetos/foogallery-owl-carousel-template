@@ -4,7 +4,7 @@ Donate link: https://www.mattcromwell.com/products/foogallery-owl-carousel/
 Tags: foogallery, owl carousel, responsive
 Requires at least: 3.8
 Tested up to: 4.5.3
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,33 +62,39 @@ Assuming you already have [FooGallery](http://wordpress.org/plugins/foogallery) 
 
 == Frequently Asked Questions ==
 
-1. **Can I set a different number of images for different size screens?**  
+**Can I set a different number of images for different size screens?**
+
 Yes. This feature was added into version 1.2. Enable the "Advanced Options" section to set those options.
 
-2. **Where did the Custom Owl Carousel link fields go?**  
+**Where did the Custom Owl Carousel link fields go?**
+
 FooGallery added this ability to it's core, so the Owl fields were superfluous and so were removed, but that functionality still exists, you just need to update your Gallerys to use the FooGallery fields now instead.
 
-3. **The Owl Carousel JS supports "X" feature, why doesn't this?**  
-Lots of reasons. I added settings which I felt made the plugin as robust as possible without creating a never-ending page of settings. I really want this template to work well out of the box as easily as possible for the most amount of users possible. That's why I've added all these conditional fields. Users who want more can get more.  
+**The Owl Carousel JS supports "X" feature, why doesn't this?**
+
+Lots of reasons. I added settings which I felt made the plugin as robust as possible without creating a never-ending page of settings. I really want this template to work well out of the box as easily as possible for the most amount of users possible. That's why I've added all these conditional fields. Users who want more can get more.
 But, if you think a feature of the JS is really awesome, let me know in the support forum and I'll evaluate it. I already added both the [break points](https://wordpress.org/support/topic/responsiveness-24?replies=3), and [auto-width](https://wordpress.org/support/topic/keep-image-proportions?replies=5) based on user feedback.
 
-4. **I don't see Owl Carousel as an option in the Gallery Templates field when I go to add a new Gallery**  
+**I don't see Owl Carousel as an option in the Gallery Templates field when I go to add a new Gallery**
+
 Make sure you go to "FooGallery > Extensions" and make sure you see "Owl Carousel" activated there.
 
-5. **How do you do it, Matt!? How do you make such awesome stuff!?**  
+**How do you do it, Matt!? How do you make such awesome stuff!?**
+
 Awww shucks! I lean on tons of other stronger, smarter, more skilled people than me and work at it every day. If you really feel that way, feel free to send me a [tip over here](https://www.mattcromwell.com/products/foogallery-owl-carousel/)
 
-6. **Can I update the text for the "prev" and "next" buttons?**
+**Can I update the text for the "prev" and "next" buttons?**
+
 Yes, since version 1.2.3 you can now use a simple filter to change the text of those buttons. Here's some sample code that you can add into your theme's function.php file to customize that text.
 
-**Update the "prev" text**
+*Update the "prev" text*
 `add_filter('owl_prev_text','new_prev_text');
 
 function new_prev_text() {
 	return 'Go to the previous slide';
 }`
 
-**Update the "next" text**
+*Update the "next" text*
 `add_filter('owl_next_text','new_next_text');
 
 function new_next_text() {
@@ -97,19 +103,52 @@ function new_next_text() {
 
 You can also return simple HTML. This allows you to swap out the text with font icons instead. For example, Twentyfifteen preloads the [Genericons](http://genericons.com/) font-icons on the front end for you. So you could swap out the text with a right and left button. In that case, your code would look like this:
 
-**Use a Genericon Left Arrow for "prev"**
+*Use a Genericon Left Arrow for "prev"*
 `add_filter('owl_prev_text','new_prev_text');
 
 function new_prev_text() {
 	return '<span class="genericon genericon-leftarrow"></span>';
 }`
 
-**Use a Genericon Right Arrow for "next"**
+*Use a Genericon Right Arrow for "next"*
 `add_filter('owl_next_text','new_next_text');
 
 function new_next_text() {
 	return '<span class="genericon genericon-rightarrow"></span>';
 }`
+
+**Can I use initialization rules from the original Owl Carousel?**
+
+Yes! Since version 1.4 there's now a filter you can use to add additional Owl init rules. Here's some examples:
+
+`add_filter('foogallery_owl_custom_init', 'my_custom_init', 10, 2);
+
+ function my_custom_init($custom_init, $gallid) {
+    $custom_init = "startPosition: 'URLHash',";
+    return $custom_init;
+ }`
+
+Just remember to always end the line with a comma, and understand that doing this wrong can definitely break your galleries.
+
+You can also target per gallery like so:
+
+`add_filter('foogallery_owl_custom_init', 'my_custom_init', 10, 2);
+
+ function my_custom_init($custom_init, $gallid) {
+    if ( "5" != $gallid ) {
+            return null;
+    } else {
+        $custom_init = "startPosition: 'URLHash',";
+        return $custom_init;
+    }
+ }`
+
+**What other filters are available?**
+
+Since version 1.4 there now the following filters available as well:
+
+ * **foogallery_owl_lazyload** -- to override the default laszyLoad : true, just return this false instead.
+ * **foogallery_owl_startposition** -- this is used in comination with the Deep Linking feature. You can choose to change the first slide to whatever you like here.
 
 == Screenshots ==
 
@@ -120,6 +159,13 @@ function new_next_text() {
 5. Choose from a plethora of styles and hover effects. See a preview live while you create your gallery.
 
 == Changelog ==
+= 1.4 =
+* Added filter to disable LazyLoad
+* Added filter for adding additional custom init rules
+* Added URLHash startPosition listener with filter for customization
+* Greatly simplify Admin JS
+* General code cleanup
+
 = 1.3 =
 * General Code clean-up and enhancements for performance
 * Updated Owl Carousel JS/CSS to latest [version 2.1.6](https://github.com/OwlCarousel2/OwlCarousel2)
