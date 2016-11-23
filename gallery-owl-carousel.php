@@ -64,7 +64,7 @@ var_dump($animation);
 	#foogallery-gallery-<?php echo $gallid; ?>.border-style-inset a::after {
 		box-shadow: inset 0 0 20px #000;
 		-moz-box-shadow: inset 0 0 20px #000;
-		-webkit-box-shadow: inset 0 0 calc(<?php echo $height; ?>px/4) rgba(0,0,0,0.8);
+		-webkit-box-shadow: inset 0 0 <?php echo 'calc(' . $height . ')px/4'; ?> rgba(0,0,0,0.8);
 	}
 </style>
 
@@ -166,10 +166,10 @@ jQuery(function($){
 	?>
 
 	$galleryContainer.owlCarousel({
-		<?php if (!empty($animation)) { ?>
+	<?php if (!empty($animation)) { ?>
 		animateOut: <?php echo $aniOut; ?>,
 		animateIn: <?php echo $aniIn; ?>,
-		<?php } ?>
+	<?php } ?>
 		items: <?php echo $items; ?>,
 		nav: <?php echo $nav; ?>,
 		margin: <?php echo $margin; ?>,
@@ -198,9 +198,10 @@ jQuery(function($){
 				items: <?php echo $itemsat960 ?>,
 			}
 		},
+
 	<?php }
 	} ?>
-
+	<?php printf(__(apply_filters('foogallery_owl_custom_init','','foogallery-owl-carousel'))); ?>
 	});
 });
 </script>
