@@ -192,6 +192,7 @@ jQuery(function($){
 		autoWidth: <?php echo $autowidth; ?>,
 	<?php if( $advanced == 'yes') { ?>
 		URLhashListener: <?php echo $hash; ?>,
+		startPosition: 'URLHash',
 		dots: <?php echo $dots; ?>,
 	<?php  if($responsive = 'yes') { ?>
 		responsiveClass: true,
