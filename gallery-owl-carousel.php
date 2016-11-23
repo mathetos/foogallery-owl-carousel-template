@@ -51,23 +51,27 @@ if(( $border_style == '' ) || ( $border_style == 'border-style-rounded' ) ) {
 //general FooGallery settings that are useful for owl
 $width = $args['width']; //image width
 $gallid = $current_foogallery->ID; // current FooGallery ID
+var_dump($animation);
 ?>
 
 <style>
-/*Used to keep captions inside the visible area*/
-#foogallery-gallery-<?php echo $gallid; ?> .foo-item {
-	max-height: <?php echo $height ; ?>px;
-}
+
+	/*Used to keep captions inside the visible area*/
+	#foogallery-gallery-<?php echo $gallid; ?> .foo-item {
+		max-height: <?php echo $height ; ?>px;
+	}
+
 	#foogallery-gallery-<?php echo $gallid; ?>.border-style-inset a::after {
 		box-shadow: inset 0 0 20px #000;
 		-moz-box-shadow: inset 0 0 20px #000;
-		-webkit-box-shadow: inset 0 0 calc(<?php echo $height ; ?>px/4) rgba(0,0,0,0.8);
+		-webkit-box-shadow: inset 0 0 calc(<?php echo $height; ?>px/4) rgba(0,0,0,0.8);
 	}
 </style>
 
 <div id="foogallery-gallery-<?php echo $gallid; ?>" class="<?php echo foogallery_build_class_attribute( $current_foogallery, 'foogallery-lightbox-' . $lightbox, 'owl-carousel ' . $hover_effect, $border_style, $hasborder ); ?>">
 
 	<?php
+
 		foreach ( $current_foogallery->attachments() as $attachment ) {
 
 			$title = $attachment->title;
@@ -100,7 +104,9 @@ $gallid = $current_foogallery->ID; // current FooGallery ID
 					<?php } ?>
 			<?php } ?>
 			</div> 
-	<?php	} // end foreach ?>
+	<?php }
+
+	// end foreach ?>
 </div>
 
 <script>
@@ -111,80 +117,90 @@ jQuery(function($){
 	var $containerID = '#foogallery-gallery-<?php echo $gallid; ?>';
 
 	$(document).on('keydown', function( event ) { //attach event listener
-			if (event.keyCode == 37) {
-				$galleryContainer.trigger('prev.owl')
-			}
-			if (event.keyCode == 39) {
-				$galleryContainer.trigger('next.owl')
-			}
-
+		if (event.keyCode == 37) {
+			$galleryContainer.trigger('prev.owl')
+		}
+		if (event.keyCode == 39) {
+			$galleryContainer.trigger('next.owl')
+		}
 	});
 
-	$galleryContainer.owlCarousel({
-	<?php switch ($animation) {
-		case 'lightspeed' : ?>
-		animateOut: 'lightSpeedOut',
-		animateIn: 'lightSpeedIn', <?php
-		break;
-
-		case 'zoomleftright' : ?>
-		animateOut: 'zoomOutLeft',
-		animateIn: 'zoomInRight', <?php
-		break;
-
-		case 'zoom' : ?>
-		animateOut: 'zoomOut',
-		animateIn: 'zoomIn', <?php
-		break;
-
-		case 'roll' : ?>
-		animateOut: 'rollOut',
-		animateIn: 'rollIn', <?php
-		break;
-
-		case 'sliderock' : ?>
-		animateOut: 'slideOutDown',
-		animateIn: 'flipInX', <?php
-		break;
-
-		case 'fade' : ?>
-		animateOut: 'fadeOut',
-		animateIn: 'fadeIn', <?php
-		break;
-
-		case 'left' :
+	<?php
+		switch ($animation) {
+			case 'lightspeed' :
+				$aniOut = 'lightSpeedOut';
+				$aniIn = 'lightSpeedIn';
 			break;
-		}
-		if( $advanced == 'yes') { ?>
-			URLhashListener: <?php echo $hash; ?>,
-			dots: <?php echo $dots; ?>,
-		<?php  if($responsive = 'yes') { ?>
-			responsiveClass: true,
-			responsive:{
-				0:{
-					items: <?php echo $itemsat0 ?>,
-				},
-				480:{
-					items: <?php echo $itemsat480 ?>,
-				},
-				960:{
-					items: <?php echo $itemsat960 ?>,
-				}
+
+			case 'zoomleftright' :
+				$aniOut = 'zoomOutLeft';
+				$aniIn = 'zoomOutRight';
+			break;
+
+			case 'zoom' :
+				$aniOut = 'zoomOut';
+				$aniIn = 'zoomIn';
+			break;
+
+			case 'roll' :
+				$aniOut = 'rollOut';
+				$aniIn =  'rollIn';
+			break;
+
+			case 'sliderock' :
+				$aniOut =  'slideOutDown';
+				$aniIn = 'flipInX';
+			break;
+
+			case 'fade' :
+				$aniOut = 'fadeOut';
+				$aniIn = 'fadeIn';
+			break;
+
+			case 'left' :
+				$aniOut = 'false';
+				$aniIn = 'false';
+			break;
+	}
+
+	?>
+
+	$galleryContainer.owlCarousel({
+		<?php if (!empty($animation)) { ?>
+		animateOut: <?php echo $aniOut; ?>,
+		animateIn: <?php echo $aniIn; ?>,
+		<?php } ?>
+		items: <?php echo $items; ?>,
+		nav: <?php echo $nav; ?>,
+		margin: <?php echo $margin; ?>,
+		loop:<?php echo $loop; ?>,
+		autoplay: <?php echo $autoplay; ?>,
+		autoplaySpeed: <?php echo $seconds; ?>,
+		smartSpeed:250,
+		navSpeed: 1250,
+		navText: ['<?php printf(__(apply_filters('owl_prev_text',esc_html__('prev'),'foogallery-owl-carousel'))); ?>', '<?php printf(__(apply_filters('owl_next_text',esc_html__('next'),'foogallery-owl-carousel'))); ?>'],
+		autoplayHoverPause: <?php echo $pause; ?>,
+		lazyLoad: <?php printf(__(apply_filters('foogallery_owl_lazyload', true, 'foogallery-owl-carousel' ))); ?>,
+		autoWidth: <?php echo $autowidth; ?>,
+	<?php if( $advanced == 'yes') { ?>
+		URLhashListener: <?php echo $hash; ?>,
+		dots: <?php echo $dots; ?>,
+	<?php  if($responsive = 'yes') { ?>
+		responsiveClass: true,
+		responsive:{
+			0:{
+				items: <?php echo $itemsat0 ?>,
 			},
-	<?php } else { } ?>
-	<?php } else { } ?>
-			items: <?php echo $items; ?>,
-			nav:<?php echo $nav; ?>,
-			margin: <?php echo $margin; ?>,
-			loop:<?php echo $loop; ?>,
-			autoplay: <?php echo $autoplay; ?>,
-			autoplaySpeed: <?php echo $seconds; ?>,
-			smartSpeed:250,
-			navSpeed: 1250,
-			navText: ['<?php printf(__(apply_filters('owl_prev_text',esc_html__('prev'),'foogallery-owl-carousel'))); ?>', '<?php printf(__(apply_filters('owl_next_text',esc_html__('next'),'foogallery-owl-carousel'))); ?>'],
-			autoplayHoverPause: <?php echo $pause; ?>,
-			lazyLoad: true,
-			autoWidth: <?php echo $autowidth; ?>
+			480:{
+				items: <?php echo $itemsat480 ?>,
+			},
+			960:{
+				items: <?php echo $itemsat960 ?>,
+			}
+		},
+	<?php }
+	} ?>
+
 	});
 });
 </script>
