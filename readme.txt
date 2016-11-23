@@ -66,22 +66,9 @@ Assuming you already have [FooGallery](http://wordpress.org/plugins/foogallery) 
 
 Yes. This feature was added into version 1.2. Enable the "Advanced Options" section to set those options.
 
-**Where did the Custom Owl Carousel link fields go?**
-
-FooGallery added this ability to it's core, so the Owl fields were superfluous and so were removed, but that functionality still exists, you just need to update your Gallerys to use the FooGallery fields now instead.
-
-**The Owl Carousel JS supports "X" feature, why doesn't this?**
-
-Lots of reasons. I added settings which I felt made the plugin as robust as possible without creating a never-ending page of settings. I really want this template to work well out of the box as easily as possible for the most amount of users possible. That's why I've added all these conditional fields. Users who want more can get more.
-But, if you think a feature of the JS is really awesome, let me know in the support forum and I'll evaluate it. I already added both the [break points](https://wordpress.org/support/topic/responsiveness-24?replies=3), and [auto-width](https://wordpress.org/support/topic/keep-image-proportions?replies=5) based on user feedback.
-
 **I don't see Owl Carousel as an option in the Gallery Templates field when I go to add a new Gallery**
 
 Make sure you go to "FooGallery > Extensions" and make sure you see "Owl Carousel" activated there.
-
-**How do you do it, Matt!? How do you make such awesome stuff!?**
-
-Awww shucks! I lean on tons of other stronger, smarter, more skilled people than me and work at it every day. If you really feel that way, feel free to send me a [tip over here](https://www.mattcromwell.com/products/foogallery-owl-carousel/)
 
 **Can I update the text for the "prev" and "next" buttons?**
 
@@ -149,6 +136,10 @@ Since version 1.4 there now the following filters available as well:
 
  * **foogallery_owl_lazyload** -- to override the default laszyLoad : true, just return this false instead.
  * **foogallery_owl_startposition** -- this is used in comination with the Deep Linking feature. You can choose to change the first slide to whatever you like here.
+
+**How do you do it, Matt!? How do you make such awesome stuff!?**
+
+Awww shucks! I lean on tons of other stronger, smarter, more skilled people than me and work at it every day. If you really appreciate this plugin, then please feel free to send me a [tip over here](https://www.mattcromwell.com/products/foogallery-owl-carousel/).
 
 == Screenshots ==
 
