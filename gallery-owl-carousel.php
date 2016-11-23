@@ -188,11 +188,11 @@ jQuery(window).on("load", function(){
 		navSpeed: 1250,
 		navText: ['<?php printf(__(apply_filters('owl_prev_text',esc_html__('prev'),'foogallery-owl-carousel'))); ?>', '<?php printf(__(apply_filters('owl_next_text',esc_html__('next'),'foogallery-owl-carousel'))); ?>'],
 		autoplayHoverPause: <?php echo $pause; ?>,
-		lazyLoad: <?php printf(__(apply_filters('foogallery_owl_lazyload', true, 'foogallery-owl-carousel' ))); ?>,
+		lazyLoad: <?php printf(__(apply_filters('foogallery_owl_lazyload', $lazyLoad = true, $gallid), 'foogallery-owl-carousel' )); ?>,
 		autoWidth: <?php echo $autowidth; ?>,
 	<?php if( $advanced == 'yes') { ?>
 		URLhashListener: <?php echo $hash; ?>,
-		startPosition: <?php printf(__(apply_filters('foogallery_owl_startposition', 'URLHash', 'foogallery-owl-carousel' ))); ?>,
+		startPosition: <?php printf(__(apply_filters('foogallery_owl_startposition', $startpos='\'URLHash\'', $gallid), 'foogallery-owl-carousel' )); ?>,
 		dots: <?php echo $dots; ?>,
 	<?php  if($responsive = 'yes') { ?>
 		responsiveClass: true,
@@ -210,7 +210,7 @@ jQuery(window).on("load", function(){
 
 	<?php }
 	} ?>
-	<?php printf(__(apply_filters('foogallery_owl_custom_init','','foogallery-owl-carousel'))); ?>
+	<?php printf(__(apply_filters('foogallery_owl_custom_init',$custom_init='', $gallid))); ?>
 	});
 });
 </script>
