@@ -192,7 +192,7 @@ jQuery(window).on("load", function(){
 		autoWidth: <?php echo $autowidth; ?>,
 	<?php if( $advanced == 'yes') { ?>
 		URLhashListener: <?php echo $hash; ?>,
-		startPosition: 'URLHash',
+		startPosition: <?php printf(__(apply_filters('foogallery_owl_startposition', 'URLHash', 'foogallery-owl-carousel' ))); ?>,
 		dots: <?php echo $dots; ?>,
 	<?php  if($responsive = 'yes') { ?>
 		responsiveClass: true,
