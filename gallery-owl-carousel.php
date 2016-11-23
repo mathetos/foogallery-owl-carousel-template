@@ -121,11 +121,11 @@ $gallid = $current_foogallery->ID; // current FooGallery ID
 <script>
 /* The Owl Initialization Script
 /* The first lines conditionally show the slide animation */
-jQuery(function($){
-	var $galleryContainer = $( '#foogallery-gallery-<?php echo $gallid; ?>' );
+jQuery(window).on("load", function(){
+	var $galleryContainer = jQuery( '#foogallery-gallery-<?php echo $gallid; ?>' );
 	var $containerID = '#foogallery-gallery-<?php echo $gallid; ?>';
 
-	$(document).on('keydown', function( event ) { //attach event listener
+	jQuery(document).on('keydown', function( event ) { //attach event listener
 		if (event.keyCode == 37) {
 			$galleryContainer.trigger('prev.owl')
 		}
