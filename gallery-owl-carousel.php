@@ -3,6 +3,7 @@
  * FooGallery Owl Carousel template
  * This is the template that is run when a FooGallery shortcode is rendered to the frontend
  */
+
 //the current FooGallery that is currently being rendered to the frontend
 global $current_foogallery;
 
@@ -51,7 +52,7 @@ if(( $border_style == '' ) || ( $border_style == 'border-style-rounded' ) ) {
 //general FooGallery settings that are useful for owl
 $width = $args['width']; //image width
 $gallid = $current_foogallery->ID; // current FooGallery ID
-var_dump($animation);
+
 ?>
 
 <style>
@@ -93,17 +94,25 @@ var_dump($animation);
 				// basically, if both caption and description are empty, show nothing here
 				// otherwise, check if either exists then show it
 				if( $showdesc == true ) {
+
 					if( (empty($cap) ) && ( empty($desc)) ) { } else { ?>
+
 					<div class="owl-caption">
 						<?php if( !empty($cap) ) { ?>
-						<h4><?php echo $cap ; ?></h4>
+							<h4><?php echo $cap ; ?></h4>
+
 						<?php } if( !empty($desc) ) { ?>
-						<p><?php echo $desc ; ?></p>
+							<p><?php echo $desc ; ?></p>
+
 						<?php } ?>
 					</div>
+
 					<?php } ?>
+
 			<?php } ?>
-			</div> 
+
+			</div>
+
 	<?php }
 
 	// end foreach ?>
@@ -157,10 +166,9 @@ jQuery(function($){
 				$aniIn = 'fadeIn';
 			break;
 
-			case 'left' :
+			default :
 				$aniOut = 'false';
 				$aniIn = 'false';
-			break;
 	}
 
 	?>
