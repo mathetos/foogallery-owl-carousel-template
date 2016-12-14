@@ -135,6 +135,7 @@ jQuery(window).on("load", function(){
 	});
 
 	<?php
+
 		switch ($animation) {
 			case 'lightspeed' :
 				$aniOut = 'lightSpeedOut';
@@ -167,17 +168,17 @@ jQuery(window).on("load", function(){
 			break;
 
 			default :
-				$aniOut = 'false';
-				$aniIn = 'false';
+				$aniOut = false;
+				$aniIn = false;
 	}
 
 	?>
 
 	$galleryContainer.owlCarousel({
-	<?php if (!empty($animation)) { ?>
-		animateOut: <?php echo $aniOut; ?>,
-		animateIn: <?php echo $aniIn; ?>,
-	<?php } ?>
+<?php if ( $animation != "left" ) { ?>
+	animateOut: '<?php echo $aniOut; ?>',
+	animateIn: '<?php echo $aniIn; ?>',
+<?php } ?>
 		items: <?php echo $items; ?>,
 		nav: <?php echo $nav; ?>,
 		margin: <?php echo $margin; ?>,

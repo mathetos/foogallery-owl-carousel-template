@@ -4,7 +4,7 @@ Donate link: https://www.mattcromwell.com/products/foogallery-owl-carousel/
 Tags: foogallery, owl carousel, responsive
 Requires at least: 3.8
 Tested up to: 4.5.3
-Stable tag: 1.4
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,13 @@ Awww shucks! I lean on tons of other stronger, smarter, more skilled people than
 5. Choose from a plethora of styles and hover effects. See a preview live while you create your gallery.
 
 == Changelog ==
+= 1.4.2 =
+* BUG: Chrome circle effect was breaking out.
+* Tweak: Better conditional function for animation in init
+
+= 1.4.1 =
+* Hotfix: properly wrap animateOut/animateIn values
+
 = 1.4 =
 * Added filter to disable LazyLoad
 * Added filter for adding additional custom init rules
