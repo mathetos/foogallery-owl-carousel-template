@@ -156,6 +156,7 @@ body .foogallery-owl-carousel.foogallery-lightbox-none.border-style-rounded .foo
     -moz-border-radius:  5px;
 }
 
+body .foogallery-owl-carousel.border-style-square-white a,
 body .foogallery-owl-carousel.foogallery-lightbox-none.border-style-square-white .foo-item  {
     border:  5px solid #FFF;
     -webkit-box-shadow:  0 0 10px rgba(0,  0,  0,  0.5);
